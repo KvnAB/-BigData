@@ -28,3 +28,114 @@ Cuando se quiere contribuir a un proyecto externo sin afectar el repositorio ori
 Para trabajar en un proyecto público y hacer mejoras antes de proponer cambios mediante un pull request.
 Si se quiere experimentar con un código sin riesgo de modificar el original.
 Para crear una versión personalizada de un software open source.
+
+
+1. Estructura del flujo de trabajo utilizando Git y GitHub
+La clave para un flujo de trabajo eficiente en Git y GitHub es establecer una estrategia clara de ramas y buenas prácticas para evitar conflictos de código y facilitar la colaboración. Aquí hay una estructura recomendada:
+
+Rama principal (main o master): Esta es la rama estable y siempre debe estar en un estado que sea desplegable. Los cambios en esta rama deben estar completamente probados y listos para producción.
+
+Ramas de desarrollo (develop): Esta rama es donde se integran las funcionalidades desarrolladas. Los desarrolladores deben crear ramas a partir de develop y hacer sus cambios aquí.
+
+Ramas de características o funcionalidades (feature/{nombre-funcionalidad}): Cada desarrollador debe crear una rama para cada nueva funcionalidad o tarea que está desarrollando, tomando como base la rama develop. Una vez terminada una funcionalidad, se realiza un Pull Request (PR) hacia develop para su integración. Por ejemplo, si un desarrollador está trabajando en la funcionalidad de la "Rueda de la vida", podría llamarla feature/rueda-de-la-vida.
+
+Ramas de corrección de errores (hotfix/{nombre-error}): Para problemas críticos en producción que necesitan ser corregidos inmediatamente, los desarrolladores deben crear ramas desde main, corregir el error y hacer el PR a main.
+
+Ramas de integración (release/{nombre-release}): Estas ramas se usan cuando se prepara una nueva versión del proyecto para producción. Generalmente, es la rama donde se hacen pruebas finales antes de que todo se fusione a main.
+
+Flujo de trabajo básico:
+
+Los miembros del equipo crean una rama feature desde develop.
+Trabajan en sus funcionalidades de manera aislada y hacen commits frecuentes.
+Cuando terminan, abren un Pull Request (PR) hacia develop.
+El equipo revisa el PR, y si está aprobado, se hace el merge a develop.
+De vez en cuando, se fusiona develop en main (generalmente a través de un PR de release).
+Buenas prácticas:
+
+Commits frecuentes y pequeños: Hacer commits pequeños y frecuentes es crucial para mantener un buen historial de cambios.
+Revisiones de código: Asegurarse de que todos los cambios pasen por una revisión de código antes de ser fusionados.
+Conflictos de merge: Resolver conflictos de manera rápida y efectiva, discutiendo con el equipo si es necesario.
+2. Resolución de conflictos de código
+Imaginemos que un miembro del equipo ha trabajado en una funcionalidad de la "Rueda de la vida" y al hacer un merge a la rama develop (o main), se presentan conflictos. Para resolverlos, se seguiría este flujo:
+
+Identificar el conflicto: Git te notificará sobre el conflicto al hacer el merge. Tendrás que abrir los archivos afectados y observar los marcadores de conflicto (generalmente indicados como <<<<<<<, =======, y >>>>>>>).
+
+Resolver el conflicto:
+
+Abre los archivos conflictivos en tu editor de código.
+Revisa el código en conflicto para decidir qué cambios se deben conservar. Puede ser que tengas que combinar ambas versiones o elegir una sobre la otra.
+Elimina los marcadores de conflicto y asegúrate de que el archivo esté listo para ser guardado.
+Probar los cambios: Después de resolver el conflicto, es importante realizar pruebas para asegurarse de que los cambios no rompan la funcionalidad existente. Si hay pruebas automatizadas, ejecútalas para verificar que todo sigue funcionando correctamente.
+
+Hacer un commit: Una vez que el conflicto se haya resuelto y probado, realiza un commit con un mensaje claro, como: "Resolución de conflictos en la funcionalidad de la Rueda de la Vida".
+
+Actualizar la rama remota: Si la resolución se hace en una rama local, después de hacer commit, sube los cambios al repositorio remoto.
+
+Revisión final: Dependiendo de las políticas del equipo, el PR debe ser revisado por otro miembro antes de fusionarse finalmente.
+
+3. Automatización de pruebas unitarias con GitHub Actions
+GitHub Actions es una excelente herramienta para la automatización de flujos de trabajo, como la ejecución de pruebas unitarias y el despliegue continuo. Para automatizar las pruebas unitarias en GitHub Actions y desplegar el sitio web, sigue estos pasos:
+
+Configurar GitHub Actions:
+
+En el repositorio de GitHub, ve a la pestaña "Actions".
+Si no tienes flujos de trabajo previos, selecciona "Set up a workflow yourself" o usa un template existente para pruebas unitarias (por ejemplo, si usas Node.js, el template adecuado es el de "Node.js").
+
+Crear el archivo de flujo de trabajo: Dentro de tu proyecto, crea un archivo YAML en .github/workflows/ci.yml para definir el flujo de trabajo. Ejemplo de archivo básico para ejecutar pruebas unitarias:
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+Configurar el despliegue continuo: Si deseas que el sitio web se despliegue de manera continua tras pasar las pruebas, puedes agregar un paso adicional para despliegue, por ejemplo, usando servicios como Netlify, Vercel o GitHub Pages. Aquí te dejo un ejemplo de despliegue a GitHub Pages:
+
+deploy:
+  runs-on: ubuntu-latest
+  needs: test
+
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build the site    
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: dist
+
+Este flujo de trabajo asegurará que las pruebas se ejecuten en cada push o pull request a la rama main y, si las pruebas son exitosas, el sitio web se desplegará automáticamente a la rama gh-pages.
