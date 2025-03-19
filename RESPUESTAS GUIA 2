@@ -1,0 +1,30 @@
+GUIA #2 GITHUB 
+
+¿Qué es un repositorio en Git y cuál es su función dentro de un proyecto de desarrollo?
+Un repositorio en Git es un almacenamiento que contiene todos los archivos de un proyecto, junto con el historial de cambios realizados en ellos. Su función dentro de un proyecto de desarrollo es permitir el seguimiento de versiones, la colaboración entre desarrolladores y la recuperación de versiones anteriores si es necesario.
+
+¿Qué problema resuelve el uso de sistemas de control de versiones como Git en proyectos de desarrollo de software?
+Git resuelve el problema de la gestión de cambios en el código fuente, evitando conflictos entre desarrolladores, facilitando el trabajo en equipo, permitiendo deshacer cambios erróneos y manteniendo un historial detallado de modificaciones para mejorar la trazabilidad y recuperación de versiones previas.
+
+¿Cómo permite Git la colaboración entre varios desarrolladores sin que sus cambios interfieran entre sí?
+Git permite la colaboración mediante el uso de ramas (branches), donde cada desarrollador puede trabajar en una funcionalidad sin afectar la rama principal. Luego, los cambios pueden fusionarse (merge) después de ser revisados, reduciendo conflictos. También permite trabajar con repositorios remotos, donde los desarrolladores pueden clonar, hacer cambios y sincronizarlos con el equipo.
+
+¿Cuál es la diferencia entre un commit y un push en el flujo de trabajo de Git?
+
+Commit: Guarda los cambios en el repositorio local, creando un registro en el historial de Git.
+Push: Envía los commits locales a un repositorio remoto (como GitHub) para que otros colaboradores puedan verlos y trabajar con ellos.
+¿Qué es un pull request en GitHub y cómo ayuda a revisar y fusionar los cambios de los colaboradores?
+Un pull request (PR) es una solicitud que un desarrollador hace en GitHub para que sus cambios sean revisados antes de fusionarse con la rama principal del proyecto. Permite a otros colaboradores o líderes del proyecto revisar el código, hacer comentarios y sugerir mejoras antes de aceptar los cambios.
+
+¿Qué ventajas ofrece el uso de ramas (branches) en Git cuando se está desarrollando una nueva funcionalidad o corrigiendo un error?
+
+Permite trabajar en nuevas características sin afectar el código estable.
+Facilita la corrección de errores sin interrumpir el desarrollo de otras partes del proyecto.
+Permite la colaboración en paralelo sin conflictos inmediatos en la rama principal.
+Se pueden probar cambios y fusionarlos solo cuando estén listos.
+¿En qué situaciones se recomienda usar un fork en GitHub?
+
+Cuando se quiere contribuir a un proyecto externo sin afectar el repositorio original.
+Para trabajar en un proyecto público y hacer mejoras antes de proponer cambios mediante un pull request.
+Si se quiere experimentar con un código sin riesgo de modificar el original.
+Para crear una versión personalizada de un software open source.
