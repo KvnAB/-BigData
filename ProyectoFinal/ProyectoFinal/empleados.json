@@ -1,0 +1,18 @@
+{
+    "juanes": {
+        "apellido": "ca\u00f1as",
+        "edad": 20,
+        "telefono": "312",
+        "email": "juanes@gmai.com",
+        "rueda": {
+            "carrera": 2,
+            "finanzas": 7,
+            "salud": 9,
+            "familia": 10,
+            "amor": 4,
+            "crecimiento": 1,
+            "diversion": 6,
+            "contribucion": 5
+        }
+    }
+}
