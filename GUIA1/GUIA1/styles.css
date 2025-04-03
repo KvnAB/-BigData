@@ -1,0 +1,52 @@
+/* Cambiar el color de fondo de la página */
+body {
+    background-color: #f0f0f0; /* Color gris claro */
+}
+
+/* Cambiar el color del texto y el tamaño de la fuente */
+body {
+    font-family: Arial, sans-serif; /* Establece la fuente */
+    font-size: 16px; /* Establece el tamaño de la fuente */
+    color: #333; /* Establece el color del texto */
+}
+
+/* Estilizar el encabezado (h1) */
+h1 {
+    color: #0056b3; /* Color azul */
+    text-align: center; /* Alineación centrada */
+    font-size: 36px; /* Tamaño de fuente */
+}
+
+/* Estilizar los párrafos (p) */
+p {
+    line-height: 1.6; /* Aumenta altura de línea para facilitar la lectura */
+    margin-bottom: 20px; /* Agrega un margen inferior */
+}
+
+/* Crear un diseño de lista */
+ul {
+    list-style-type: square; /* Cambia los puntos de la lista por cuadrados */
+    padding-left: 20px; /* Agrega un poco de espacio a la izquierda */
+}
+
+li {
+    font-size: 18px; /* Cambia el tamaño de la fuente de los elementos de la lista */
+}
+
+/* Añadir un borde a las imágenes */
+img {
+    border: 5px solid #ccc; /* Borde gris claro de 5 píxeles */
+    max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
+}
+
+/* Crear un diseño de enlace */
+a {
+    color: #ff5733; /* Color del enlace */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+a:hover {
+    color: #333; /* Cambia el color del enlace al pasar el mouse por encima */
+    text-decoration: underline; /* Subraya el enlace cuando se pasa el mouse */
+}

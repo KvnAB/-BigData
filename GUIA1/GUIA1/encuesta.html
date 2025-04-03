@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Encuesta de Evaluación de la Rueda de la Vida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+        .btn-submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.2em;
+        }
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Encuesta de Evaluación de la Rueda de la Vida</h1>
+
+    <form action="" method="POST">
+        <h3>Evalúa tu satisfacción en las siguientes áreas de tu vida (1 = Muy Insatisfecho, 10 = Muy Satisfecho):</h3>
+
+        <!-- Salud -->
+        <label for="salud">Salud:</label>
+        <input type="range" id="salud" name="salud" min="1" max="10" value="5">
+        <div class="range-labels">
+            <span>1</span>
+            <span>5</span>
+            <span>10</span>
+        </div>
+
+        <!-- Familia -->
+        <label for="familia">Familia:</label>
+        <input type="range" id="familia" name="familia" min="1" max="10" value="5">
+        <div class="range-labels">
+            <span>1</span>
+            <span>5</span>
+            <span>10</span>
+        </div>
+
+        <!-- Finanzas -->
+        <label for="finanzas">Finanzas:</label>
+        <input type="range" id="finanzas" name="finanzas" min="1" max="10" value="5">
+        <div class="range-labels">
+            <span>1</span>
+            <span>5</span>
+            <span>10</span>
+        </div>
+
+        <!-- Trabajo -->
+        <label for="trabajo">Trabajo:</label>
+        <input type="range" id="trabajo" name="trabajo" min="1" max="10" value="5">
+        <div class="range-labels">
+            <span>1</span>
+            <span>5</span>
+            <span>10</span>
+        </div>
+
+        <!-- Crecimiento Personal -->
+        <label for="crecimiento">Crecimiento Personal:</label>
+        <input type="range" id="crecimiento" name="crecimiento" min="1" max="10" value="5">
+        <div class="range-labels">
+            <span>1</span>
+            <span>5</span>
+            <span>10</span>
+        </div>
+
+        <!-- Amigos -->
+        <label for="amigos">Amigos:</label>
+        <input type="range" id="amigos" name="amigos" min="1" max="10" value="5">
+        <div class="range-labels">
+            <span>1</span>
+            <span>5</span>
+            <span>10</span>
+        </div>
+
+        <!-- Espiritualidad -->
+        <label for="espiritualidad">Espiritualidad:</label>
+        <input type="range" id="espiritualidad" name="espiritualidad" min="1" max="10" value="5">
+        <div class="range-labels">
+            <span>1</span>
+            <span>5</span>
+            <span>10</span>
+        </div>
+
+        <!-- Otras áreas -->
+        <!-- Puedes agregar más áreas aquí según lo necesites -->
+
+        <button type="submit" class="btn-submit">Enviar Evaluación</button>
+    </form>
+
+</body>
+</html>
