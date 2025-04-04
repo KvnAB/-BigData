@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Data - Rueda de la Vida</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Big Data - Rueda de la Vida</h1>
+    </header>
+    
+    <main>
+        <section class="form-section">
+            <h2>Ingrese sus datos</h2>
+            <form id="lifeWheelForm">
+                <label for="salud">Salud (1-10):</label>
+                <input type="number" id="salud" name="salud" min="1" max="10" required>
+                
+                <label for="finanzas">Finanzas (1-10):</label>
+                <input type="number" id="finanzas" name="finanzas" min="1" max="10" required>
+                
+                <label for="relaciones">Relaciones (1-10):</label>
+                <input type="number" id="relaciones" name="relaciones" min="1" max="10" required>
+                
+                <label for="trabajo">Trabajo (1-10):</label>
+                <input type="number" id="trabajo" name="trabajo" min="1" max="10" required>
+                
+                <button type="submit">Generar Rueda de la Vida</button>
+            </form>
+        </section>
+        
+        <section class="result-section">
+            <h2>Resultados</h2>
+            <div id="resultados"></div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
